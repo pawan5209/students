@@ -4,7 +4,14 @@ set :application, "demo_app"
 set :repo_url, 'https://github.com/aadeshere1/students.git'
 set :deploy_to, '/home/ubuntu/demo_app'
 set :use_sudo, true
-set :branch, 'master'
+set :branch, 'main'
+
+# Puma configurations
+set :puma_threads, [4, 16]
+set :puma_workers, 0
+
+set :pty, true
+
 set :linked_files, %w{config/master.key config/database.yml}
 set :rails_env, 'production'
 set :keep_releases, 2
@@ -12,6 +19,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :linked_files, %w{config/database.yml config/master.key}
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :deploy_via, :remote_cache
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
@@ -31,3 +39,4 @@ end
 end
 before :start, :make_dirs
 end
+

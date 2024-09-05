@@ -30,9 +30,10 @@ install_plugin Capistrano::SCM::Git
 require "capistrano/rbenv"
 # require "capistrano/chruby"
 require "capistrano/bundler"
-require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
+require "capistrano/rails"
+require "capistrano/rails"
 require 'capistrano/puma'
+require 'capistrano/puma/workers'
 install_plugin Capistrano::Puma
 # require "capistrano/passenger"
 
