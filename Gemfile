@@ -28,7 +28,7 @@ gem "capistrano-rails"
 gem "capistrano-bundler"
 
 gem "capistrano-rbenv"
-# gem "capistrano3-puma", "4.0.0"
+gem "capistrano3-puma"
 gem 'net-ssh'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
