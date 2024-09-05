@@ -99,4 +99,24 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+
+# require 'net/ssh/proxy/command'
+
+# server '44.204.78.250', user: 'ubuntu', roles: %w{web app db}
+
+# set :ssh_options, {
+#   forward_agent: true,
+#   keys: %w(~/.ssh/personal_ssh.pem),
+#   proxy: Net::SSH::Proxy::Command.new('ssh -i ~/.ssh/personal_ssh.pem -W %h:%p ubuntu@44.204.78.250'),
+#   verify_host_key: :always  # or :accept_new
+# }
+
+server '44.204.78.250', user: 'ubuntu', roles: %w{web app db}
+set :ssh_options, {
+  forward_agent: true,
+  auth_methods: %w[publickey],
+  keys: %w[/~ssh/personal_ssh.pem]
+}
+
 end

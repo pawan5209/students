@@ -21,15 +21,15 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
 
-gem "capistrano"
+gem 'capistrano', '~> 3.19.1'
 
 gem "capistrano-rails"
 
 gem "capistrano-bundler"
 
 gem "capistrano-rbenv"
-
-gem "capistrano3-puma"
+# gem "capistrano3-puma", "4.0.0"
+gem 'net-ssh'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

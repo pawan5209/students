@@ -50,8 +50,9 @@ test:
 #
 production:
   <<: *default
-  database: terraform-20240904063921502700000001.cpegieao60y3.us-east-1.rds.amazonaws.com
+  database: terraform-20240904063921502700000001
   username: admin
   password: veryStrongpassword1
+  host: terraform-20240904063921502700000001.cpegieao60y3.us-east-1.rds.amazonaws.com
   port: 3306
 
