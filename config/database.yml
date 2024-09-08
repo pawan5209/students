@@ -3,11 +3,11 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: root
 
 development:
   <<: *default
+  host: 127.0.0.1
   database: ideator_development
 
 test:
@@ -16,9 +16,10 @@ test:
 
 production:
   <<: *default
+  socket: /tmp/mysql.sock
   database: terraform-20240906051912576100000005
   username: admin
   password: veryStrongpassword1
   host: terraform-20240906051912576100000005.cbnos23a68av.us-east-1.rds.amazonaws.com
   port: 3306
-
+  socket: null
