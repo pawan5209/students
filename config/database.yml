@@ -17,6 +17,7 @@ test:
 production:
   <<: *default
   adapter: mysql2
+  socket: /var/run/mysqld/mysqld.sock
   encoding: utf8mb4
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USERNAME'] %>
