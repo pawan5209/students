@@ -16,11 +16,11 @@ test:
 
 production:
   <<: *default
-  # socket: /tmp/mysql.sock
-  database: terraform-20240906051912576100000005
-  username: admin
-  password: veryStrongpassword1
-  host: 10.0.21.38
-  # host: terraform-20240906051912576100000005.cbnos23a68av.us-east-1.rds.amazonaws.com
+  adapter: mysql2
+  encoding: utf8mb4
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
   port: 3306
-  socket: null
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

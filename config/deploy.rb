@@ -7,6 +7,15 @@ set :rvm_ruby_version, 'ruby-3.3.1' # Replace with your Ruby version
 
 set :pty, true
 set :linked_files, %w{config/database.yml config/master.key} #if rails 5.2 & above master.key is used insted of application.yml
+
+set :default_env, {
+  'RAILS_ENV' => 'production',
+  'DB_NAME' => 'terraform-20240906051912576100000005',
+  'DB_USERNAME' => 'admin',
+  'DB_PASSWORD' => 'veryStrongpassword1',
+  'DB_HOST' => 'terraform-20240906051912576100000005.cbnos23a68av.us-east-1.rds.amazonaws.com',
+  'DB_PORT' => '3306'
+}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 # set :default_env, { 'RAILS_MASTER_KEY' => 'de40d604cd28f5b814473c92363e649a' }
