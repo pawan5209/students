@@ -14,7 +14,8 @@ set :default_env, {
   'DB_USERNAME' => 'admin',
   'DB_PASSWORD' => 'veryStrongpassword1',
   'DB_HOST' => 'terraform-20240906051912576100000005.cbnos23a68av.us-east-1.rds.amazonaws.com',
-  'DB_PORT' => '3306'
+  'DB_PORT' => '3306',
+  'DATABASE_URL' => 'mysql2://admin:veryStrongpassword1@terraform-20240906051912576100000005.cbnos23a68av.us-east-1.rds.amazonaws.com:3306/terraform-20240906051912576100000005'
 }
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
