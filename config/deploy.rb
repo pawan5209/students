@@ -58,3 +58,15 @@ namespace :deploy do
   end
   
   before 'deploy:migrate', 'deploy:create_database'
+
+  namespace :puma do
+    desc 'Restart Puma server'
+    task :restart do
+      on roles(:app) do
+        execute :sudo, 'systemctl restart puma'
+      end
+    end
+  end
+  
+  # Hook to restart Puma after the deploy finishes
+  after 'deploy:publishing', 'puma:restart'
