@@ -33,6 +33,9 @@ shared_dir = "#{app_dir}/shared"
 # Bind to a Unix socket with the correct name
 bind "unix://#{shared_dir}/tmp/sockets/students-puma.sock"
 
+# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+bind "tcp://0.0.0.0:#{ENV.fetch("PORT") { 3000 }}"
+
 # Logging
 stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
 
